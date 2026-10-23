@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff5f7">
+  <meta name="description" content="เกมวันเกิดเล็ก ๆ ที่ตั้งใจทำให้คนพิเศษ">
+  <title>Birthday for my favorite person ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Birthday for you">
+        <span class="brand-mark">♡</span>
+        <span>just for you</span>
+      </a>
+      <button class="top-note" id="music-button" type="button">♫ เพลงไม่เล่น? เปิดเครื่องเล่น</button>
+    </header>
+
+    <nav class="progress" aria-label="ความคืบหน้าของเกม">
+      <div class="progress-track"><span id="progress-fill"></span></div>
+      <div class="progress-steps">
+        <span class="progress-step active" data-step="1"><i>01</i><b>ปลดล็อกวันเกิด</b></span>
+        <span class="progress-step" data-step="2"><i>02</i><b>ปักเทียน</b></span>
+        <span class="progress-step" data-step="3"><i>03</i><b>อธิษฐาน</b></span>
+        <span class="progress-step" data-step="4"><i>04</i><b>จดหมาย</b></span>
+      </div>
+    </nav>
+
+    <section class="screen active" id="stage-1" aria-labelledby="stage-one-title">
+      <div class="stage-heading">
+        <span class="eyebrow"><span class="sparkle">✦</span> little birthday game · 01</span>
+        <h1 id="stage-one-title">กุญแจดอกนี้…<br><em>เป็นของวันไหนนะ?</em></h1>
+        <p>ตั้งวันที่ให้ตรงกับวันเกิด แล้วกุญแจจะเปิด♡</p>
+      </div>
+      <div class="unlock-card">
+        <div class="lock-illustration" aria-hidden="true">
+          <div class="lock-halo"></div>
+          <div class="keyhole-ring"><span class="keyhole"></span></div>
+          <div class="key key-one">✧</div>
+          <div class="key key-two">♡</div>
+          <div class="lock-caption">the key to your day</div>
+        </div>
+        <div class="date-panel">
+          <div class="date-label"><span class="tiny-dot"></span> SET THE BIRTHDAY</div>
+          <div class="flip-clock" role="group" aria-label="กรอกวันเกิด">
+            <label class="flip-unit">
+              <span class="flip-value"><input id="birth-day" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" placeholder="DD" autocomplete="off" aria-label="วัน" required></span>
+              <span class="flip-name">DAY</span>
+            </label>
+            <span class="flip-colon">:</span>
+            <label class="flip-unit">
+              <span class="flip-value"><input id="birth-month" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" placeholder="MM" autocomplete="off" aria-label="เดือน" required></span>
+              <span class="flip-name">MONTH</span>
+            </label>
+            <span class="flip-colon year-colon">:</span>
+            <label class="flip-unit year-unit">
+              <span class="flip-value"><input id="birth-year" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="YYYY" autocomplete="off" aria-label="ปี พ.ศ." required></span>
+              <span class="flip-name">YEAR · พ.ศ.</span>
+            </label>
+          </div>
+          <p class="hint-line">กรอกวัน เดือน และปีเกิดของเธอ</p>
+          <button class="button button-primary" id="unlock-button" type="button">
+            <span>ลองไขกุญแจดู</span><span class="button-arrow">↗</span>
+          </button>
+          <p class="feedback" id="date-feedback" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="stage-2" aria-labelledby="stage-two-title">
+      <div class="stage-heading">
+        <span class="eyebrow"><span class="sparkle">✦</span> little birthday game · 02</span>
+        <h1 id="stage-two-title">เค้กยังขาดอะไรนะ? <em>🕯</em></h1>
+        <p>แตะบนหน้าเค้กเพื่อปักเทียนให้ครบ <strong>21 แท่ง</strong> พอดีเลยนะ</p>
+      </div>
+      <div class="cake-card">
+        <div class="cake-area">
+          <div class="cake-sprinkles" aria-hidden="true">✧　·　✦　·　✧　·　♡</div>
+          <div class="cake cake-isometric" id="cake" role="group" tabindex="0" aria-label="แตะหน้าเค้กเพื่อปักเทียน">
+            <svg class="isometric-art" viewBox="0 0 340 230" aria-hidden="true">
+              <defs>
+                <linearGradient id="cake-top-color" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#fffaf8"></stop>
+                  <stop offset="1" stop-color="#f4c5d0"></stop>
+                </linearGradient>
+                <linearGradient id="cake-upper-side" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#f1b9c6"></stop>
+                  <stop offset="1" stop-color="#df91a5"></stop>
+                </linearGradient>
+                <linearGradient id="cake-lower-left" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#df91a5"></stop>
+                  <stop offset="1" stop-color="#efb4c2"></stop>
+                </linearGradient>
+                <linearGradient id="cake-lower-right" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#d7839a"></stop>
+                  <stop offset="1" stop-color="#c96f89"></stop>
+                </linearGradient>
+              </defs>
+              <ellipse cx="170" cy="210" rx="158" ry="15" fill="#fff" stroke="#edd6da" stroke-width="2"></ellipse>
+              <path d="M20 151 C20 174 87 193 170 193 C253 193 320 174 320 151 L320 194 C320 217 253 230 170 230 C87 230 20 217 20 194 Z" fill="url(#cake-lower-right)"></path>
+              <path d="M20 151 C20 174 87 193 170 193 C170 205 103 188 20 166 Z" fill="url(#cake-lower-left)"></path>
+              <path d="M20 151 C20 174 87 193 170 193 C253 193 320 174 320 151" fill="none" stroke="#fff4f5" stroke-width="3"></path>
+              <path d="M28 180 C58 193 82 198 106 201 M234 201 C258 198 282 193 312 180" fill="none" stroke="#f7d7df" stroke-width="5" stroke-dasharray="1 13" stroke-linecap="round"></path>
+              <ellipse cx="170" cy="151" rx="150" ry="48" fill="url(#cake-top-color)" stroke="#e9b9c5" stroke-width="2"></ellipse>
+              <path d="M57 88 C57 108 107 126 170 126 C233 126 283 108 283 88 L283 137 C283 157 233 174 170 174 C107 174 57 157 57 137 Z" fill="url(#cake-upper-side)"></path>
+              <path d="M60 122 C89 133 118 139 141 140 M199 140 C222 139 251 133 280 122" fill="none" stroke="#fff4f5" stroke-width="4" stroke-dasharray="1 12" stroke-linecap="round"></path>
+              <ellipse cx="170" cy="88" rx="113" ry="39" fill="url(#cake-top-color)" stroke="#e9b9c5" stroke-width="2"></ellipse>
+              <path d="M60 89 C83 108 126 121 170 121 C214 121 257 108 280 89" fill="none" stroke="#fff8f7" stroke-width="4" stroke-linecap="round"></path>
+              <path d="M98 67 C120 76 146 81 170 81 C194 81 220 76 242 67 M112 88 C130 94 150 98 170 98 C190 98 210 94 228 88" fill="none" stroke="#f0c1cc" stroke-width="2" stroke-dasharray="2 9" stroke-linecap="round"></path>
+              <text x="170" y="90" text-anchor="middle" fill="#d8879d" font-size="14">♡</text>
+            </svg>
+            <div class="candle-area" id="candle-area"></div>
+            <div class="cake-plate"></div>
+          </div>
+          <p class="cake-instruction">แตะหน้าเค้กเพื่อปักเทียน · แตะเทียนเพื่อลบ</p>
+        </div>
+        <div class="candle-counter">
+          <div class="counter-label">CANDLES ON THE CAKE</div>
+          <div class="counter-number"><span id="candle-count">00</span><small> / 21</small></div>
+          <div class="counter-progress"><span id="candle-progress"></span></div>
+          <p id="candle-message">ยังไม่ครบ มาเติมเทียนให้หน่อยน้า</p>
+          <button class="button button-primary" id="candles-done" type="button" disabled>
+            <span>ครบแล้ว</span><span class="button-arrow">↗</span>
+          </button>
+          <span class="counter-footnote">ครบ 21 แท่งเป๊ะ ถึงจะไปต่อได้นะ ♡</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="stage-3" aria-labelledby="stage-three-title">
+      <div class="stage-heading">
+        <span class="eyebrow"><span class="sparkle">✦</span> little birthday game · 03</span>
+        <h1 id="stage-three-title">หลับตาแล้วขอพร <em>นะที่รัก</em></h1>
+        <p>เทียนทั้ง 21 เล่มพร้อมแล้ว ขอพรในใจของเธอได้เลยค้าบ ✨</p>
+      </div>
+      <div class="wish-card">
+        <div class="wish-glow" aria-hidden="true"></div>
+        <div class="cake cake-lit" aria-hidden="true">
+          <div class="cake-top"><div class="candle-area" id="wish-candles"></div><span class="cake-heart">♡</span></div>
+          <div class="cake-layer layer-top"></div><div class="cake-layer layer-bottom"></div><div class="cake-plate"></div>
+        </div>
+        <div class="wish-copy">
+          <span class="eyebrow">make a little wish</span>
+          <h2>กรุณาอธิษฐานก่อนค้าบ<br><em>ค่อยเป่าเทียน</em></h2>
+          <p id="wish-countdown">ค่อย ๆ ขอพรนะ…</p>
+          <button class="button button-primary hidden" id="blow-button" type="button">
+            <span>เป่าเทียนเลย</span><span class="button-arrow">✧</span>
+          </button>
+        </div>
+      </div>
+      <div class="birthday-video-screen hidden" id="birthday-video-screen">
+        <h2>วิดีโอพิเศษสำหรับเธอ ♡</h2>
+        <video id="birthday-video" controls playsinline preload="auto" aria-label="วิดีโอพิเศษหลังเป่าเทียน">
+          <source src="video/01.mp4" type="video/mp4">
+          เบราว์เซอร์นี้ไม่รองรับการเล่นวิดีโอ
+        </video>
+        <p id="video-message" aria-live="polite">กำลังเล่นวิดีโอ…</p>
+        <button class="button button-primary hidden" id="video-continue" type="button">
+          <span>ถัดไป</span><span class="button-arrow">↗</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="screen" id="stage-4" aria-labelledby="stage-four-title">
+      <div class="stage-heading final-heading">
+        <span class="eyebrow"><span class="sparkle">✦</span> a letter, just for you · 04</span>
+        <h1 id="stage-four-title">เปิดอ่านความในใจ <em>นะ ♡</em></h1>
+        <p>มีซองจดหมายเล็ก ๆ ที่ตั้งใจเขียนให้เธออยู่ตรงนี้</p>
+      </div>
+      <div class="envelope-gate" id="envelope-gate">
+        <div class="envelope" id="envelope" aria-hidden="true">
+          <div class="envelope-paper"><span>for you</span></div>
+          <div class="envelope-back"></div>
+          <div class="envelope-flap"></div>
+          <div class="envelope-front"></div>
+          <div class="envelope-seal">♡</div>
+        </div>
+        <p>ข้างในมีคำอวยพรและรูปความทรงจำของเราอยู่ ♡</p>
+        <button class="button button-primary" id="open-letter" type="button">เปิดซองจดหมายสิค้าบ <span class="button-arrow">♡</span></button>
+      </div>
+      <div class="letter-card hidden" id="letter-card">
+        <div class="memory-panel">
+          <div class="photo-frame">
+            <img id="memory-image" class="memory-image hidden" alt="รูปความทรงจำของเรา">
+            <div class="photo-placeholder" id="photo-placeholder">
+              <span class="placeholder-heart">♡</span>
+              <strong>our little memories</strong>
+              <span>เพิ่มรูปโปรด 4 รูปของเรา</span>
+            </div>
+            <div class="photo-count" id="photo-count">0 / 4 รูป</div>
+          </div>
+          <div class="slide-controls">
+            <button class="round-button" id="photo-prev" type="button" aria-label="รูปก่อนหน้า">←</button>
+            <div class="slide-dots" id="slide-dots" aria-label="เลือกรูป"></div>
+            <button class="round-button" id="photo-next" type="button" aria-label="รูปถัดไป">→</button>
+          </div>
+          <label class="upload-button" for="photo-upload"><span>＋</span> เลือกรูปภาพ 4 รูป</label>
+          <input id="photo-upload" class="visually-hidden" type="file" accept="image/*" multiple>
+          <p class="upload-note" id="upload-note" aria-live="polite">รูปจะอยู่ในเบราว์เซอร์นี้เท่านั้น</p>
+        </div>
+        <div class="letter-divider" aria-hidden="true"></div>
+        <article class="letter-copy">
+          <div class="letter-topline"><span>TO MY FAVORITE PERSON</span><span>♡</span></div>
+          <div class="letter-seal" aria-hidden="true">♡</div>
+          <h2>สุขสันต์วันเกิด<br><em>นะค้าบที่รัก...</em></h2>
+          <p>ขอบคุณที่อดทนและจับมือกันมาตลอดจนถึงตอนนี้นะ ขอให้เธอมีความสุขมากๆ มีรอยยิ้มในทุกๆ วัน พักผ่อนเยอะๆ และดูแลตัวเองดีๆ นะ ปีนี้ถึงเราจะไม่ได้อยู่ฉลองด้วยกัน..แต่ความคิดถึงและรักของเค้าก็จะอยู่ข้างๆ เธอเสมอนะ  อยากให้เธอรู้ว่า..ไม่ว่าจะไกลกันแค่ไหน เธอคือความสบายใจ และเป็นของขวัญที่ดีที่สุดในชีวิตเค้าเสมอ รอวันจะได้กลับไปกอดเธอ และไปเที่ยวฉลองด้วยกันนะ รักเธอนะครับ My LOVE❤️</p>
+          <div class="letter-signoff">TOEY <span>♡</span></div>
+        </article>
+      </div>
+      <div class="ending-note hidden" id="ending-note"><span>made with</span> <span>♡</span> <span>just for you</span></div>
+    </section>
+
+    <footer class="footer-note"><span>♡</span> made with a little extra love <span>♡</span></footer>
+  </main>
+  <div class="music-fallback hidden" id="music-fallback">
+    <iframe id="music-frame" title="เพลงพื้นหลังจาก YouTube" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    <button id="music-close" type="button">ซ่อนเครื่องเล่น</button>
+  </div>
+
+  <div class="birthday-backdrop hidden" id="birthday-backdrop" role="dialog" aria-modal="true" aria-labelledby="birthday-title">
+    <div class="birthday-reveal" aria-live="polite">
+      <div class="confetti-burst" aria-hidden="true">✦　✧　✦　♡　✧</div>
+      <span class="eyebrow">the lock is open!</span>
+      <h2 id="birthday-title">Happy birthday <em>to you</em></h2>
+      <p>วันนี้เป็นวันพิเศษของเธอแล้วนะ ♡</p>
+      <button class="button button-primary" id="stage-one-continue" type="button">ไปต่อกันเลย <span class="button-arrow">↗</span></button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
